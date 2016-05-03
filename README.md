@@ -28,6 +28,7 @@ perm.check(
   'sessionUserId',          // Optional user id.
                             // If provided, authenticated user level will be assigned.
                             // Also, it will be tested against whitelist and blacklist ids.
+                            // If not provided, user permission level will be 0.
                             
   3                         // Optional user level.
                             // If provided, this value will be used as the user's permission level.

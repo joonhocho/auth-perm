@@ -11,14 +11,12 @@ export default class Permissions {
     this.check = ({p = defaultLevel, a, b}, userId, userLevel) => {
       const isAuthed = userId != null;
 
-      if (userLevel == null) {
-        if (adminMap[userId] === true) {
-          userLevel = adminLevel;
-        } else if (isAuthed) {
-          userLevel = authenticatedLevel;
-        } else {
-          userLevel = 0;
-        }
+      if (adminMap[userId] === true) {
+        userLevel = Math.max(adminLevel, userLevel || 0);
+      } else if (isAuthed) {
+        userLevel = Math.max(authenticatedLevel, userLevel || 0);
+      } else {
+        userLevel = 0;
       }
 
       if (userLevel >= p) {

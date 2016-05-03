@@ -24,6 +24,14 @@ describe('Permissions', () => {
     expect(new Permissions().check({p: 2}, 'user_id')).to.be.false;
   });
 
+  it('allow authenticated access with custom user level', () => {
+    expect(new Permissions().check({p: 2}, 'user_id', 3)).to.be.true;
+  });
+
+  it('does not allow authenticated access with low custom user level', () => {
+    expect(new Permissions().check({p: 2}, 'user_id', 1.5)).to.be.false;
+  });
+
   it('allows configuration of authenticatedLevel', () => {
     expect(
       new Permissions({authenticatedLevel: 5})
@@ -49,6 +57,13 @@ describe('Permissions', () => {
     expect(
       new Permissions({admins: ['user_id'], adminLevel: 100})
         .check({p: 11}, 'user_id')
+    ).to.be.true;
+  });
+
+  it('allows configuration of adminLevel. max(adminLevel, userLevel).', () => {
+    expect(
+      new Permissions({admins: ['user_id'], adminLevel: 100})
+        .check({p: 11}, 'user_id', 8)
     ).to.be.true;
   });
 

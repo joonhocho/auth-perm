@@ -31,6 +31,6 @@ perm.check(
                             // If not provided, user permission level will be 0.
                             
   3                         // Optional user level.
-                            // If provided, this value will be used as the user's permission level.
+                            // If provided, Math.max(custom, userLevel) will be used as the user's permission level.
 );
 ```

@@ -1,2 +1,2 @@
 # auth-perm
-A permission authorization management solution for GraphQL
+A simple level-based permission authorization

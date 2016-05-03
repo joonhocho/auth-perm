@@ -1,13 +1,12 @@
-export default class Permissions() {
+export default class Permissions {
   constructor({
     admins,
     defaultLevel = 0,
     authenticatedLevel = 1,
     adminLevel = 10,
-  }) {
-    adminMap = (admins || []).reduce((obj, id) => {
-      obj[id] = true;
-    }, {});
+  } = {}) {
+    const adminMap = (admins || []).reduce(
+      (obj, id) => { obj[id] = true; return obj; }, {});
 
     this.check = ({p = defaultLevel, a, b}, userId, userLevel) => {
       const isAuthed = userId != null;

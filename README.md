@@ -1,6 +1,7 @@
 # auth-perm
 A simple level-based permission authorization
 
+## WORK IN PROGRESS
 
 ### Install
 ```

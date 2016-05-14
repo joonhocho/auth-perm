@@ -1,7 +1,10 @@
 # auth-perm
 A simple level-based permission authorization
 
-## WORK IN PROGRESS
+
+## NOT MAINTAINED
+ATTENTION! USE RULE-BASED [joonhocho/graphql-rule](https://github.com/joonhocho/graphql-rule) INSTEAD!!!
+
 
 ### Install
 ```
